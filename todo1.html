@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      .c1{
+        border-style: dashed solid;
+        width: 300px;
+        height: 100px;
+        background-color: blueviolet;
+    }
+    .c2{
+        
+        width: 300px;
+        height: 100px;
+    }
+
+
+    </style>
+</head>
+<body>
+  
+  <div class="container-fluid p-3 my-3 ">
+    <h2 class="text-center text-success">TODO </h2>
+    <div class="container bg-primary c1" >
+        <input type="text" id="InputTask" >
+        <button type="button" onclick="add()" id="addsub" class="btn btn-success">ADD</button>
+      
+    </div> <br><br>
+    <div class="container c2">
+    <table id="myTable" border="1" class="bg-primary">
+        <thead>
+            <tr>
+            <th >sl No</th>
+            <th >Task Name</th>
+            <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+          
+    </table>
+</div>
+</div>
+    <script>
+        var count=0;
+        function add() 
+    {
+      var task=document.getElementById('InputTask').value;
+      document.getElementById('InputTask').value="";
+      if(task.length==0){
+          alert('plz choose your task');
+      }
+      else{
+        var tr=document.createElement('tr');
+        var td1=tr.appendChild(document.createElement('td'));
+        var td2=tr.appendChild(document.createElement('td'));
+        var td3=tr.appendChild(document.createElement('td'));
+        var td4=tr.appendChild(document.createElement('td'));
+        
+      td1.innerHTML=++count;
+      td2.innerHTML=task;
+      td3.innerHTML=`<button  onclick="delFunc(this)";>Delete</button>` ;
+      td4.innerHTML= `<button  onclick="editFunc(this)";>Edit</button>`;
+    document.getElementById('myTable').appendChild(tr);
+      }
+
+      
+    }
+    function delFunc(e){
+        var s=e.parentNode.parentNode;
+      s.parentNode.removeChild(s);
+       
+        
+    }
+    
+    function editFunc(e){
+        
+      /*  var s=e.parentNode.parentNode;
+          var tr=document.createElement('tr');
+          var td1=tr.appendChild(document.createElement('td'));
+          var td2=tr.appendChild(document.createElement('td'));
+          var td3=tr.appendChild(document.createElement('td'));
+          var td4=tr.appendChild(document.createElement('td'));
+          
+        td1.innerHTML='<input type="number" id="editserial" value="">';
+        td2.innerHTML='<input type="text" id="editTask" value="">';
+        td3.innerHTML=`<button onclick="delFunc(this)";>Delete</button>` ;
+        td4.innerHTML= `<button onclick="upFunc(this)";>Edit</button>`;
+      document.getElementById('myTable').replaceChild(tr,s); */
+
+      var s=e.parentNode.parentNode;
+      console.log(s);
+      var cell=s.getElementsByTagName('td');
+      console.log(cell[1].innerHTML);
+      var cellvalue=cell[1].innerHTML;
+        var tr=document.createElement('tr');
+        var td1=tr.appendChild(document.createElement('td'));
+        var td2=tr.appendChild(document.createElement('td'));
+        var td3=tr.appendChild(document.createElement('td'));
+        var td4=tr.appendChild(document.createElement('td'));
+        
+      td1.innerHTML=cell[0].innerHTML;
+      td2.innerHTML='<input type="text" id="editTask" value="">';
+      td3.innerHTML=`<button onclick="delFunc(this)";>Delete</button>` ;
+      td4.innerHTML= `<button onclick="upFunc(this)";>Edit</button>`;
+    document.getElementById('myTable').replaceChild(tr,s);
+   document.getElementById('editTask').value=cellvalue;
+        
+       
+       
+    }
+    function upFunc(e){
+    /*  var sno=document.getElementById('editserial').value;
+        var etask=document.getElementById('editTask').value;
+        var s=e.parentNode.parentNode;
+          var tr=document.createElement('tr');
+          var td1=tr.appendChild(document.createElement('td'));
+          var td2=tr.appendChild(document.createElement('td'));
+          var td3=tr.appendChild(document.createElement('td'));
+          var td4=tr.appendChild(document.createElement('td'));
+          
+        td1.innerHTML=sno;
+        td2.innerHTML=etask;
+        td3.innerHTML=`<button onclick="delFunc(this)";>Delete</button>` ;
+        td4.innerHTML= `<button onclick="editFunc(this)";>Edit</button>`;
+      document.getElementById('myTable').replaceChild(tr,s); */
+      var etask=document.getElementById('editTask').value;
+        var s=e.parentNode.parentNode;
+        var cell=s.getElementsByTagName('td');
+          var tr=document.createElement('tr');
+          var td1=tr.appendChild(document.createElement('td'));
+          var td2=tr.appendChild(document.createElement('td'));
+          var td3=tr.appendChild(document.createElement('td'));
+          var td4=tr.appendChild(document.createElement('td'));
+          
+        td1.innerHTML=cell[0].innerHTML;
+        td2.innerHTML=etask;
+        td3.innerHTML=`<button onclick="delFunc(this)";>Delete</button>` ;
+        td4.innerHTML= `<button onclick="editFunc(this)";>Edit</button>`;
+      document.getElementById('myTable').replaceChild(tr,s);
+
+        
+
+    }
+       
+
+
+
+    </script>
+</body>
+
+</html>

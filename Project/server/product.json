@@ -1,0 +1,52 @@
+{
+  "Products": [
+    {
+      "product_name": "omni",
+      "price": "767",
+      "quantity": "9",
+      "id": 12
+    },
+    {
+      "product_name": "Vivo",
+      "price": "9999",
+      "quantity": "7",
+      "id": 13
+    },
+    {
+      "product_name": "Samsung",
+      "price": "12000",
+      "quantity": "2",
+      "id": 14
+    },
+    {
+      "product_name": "F123",
+      "price": "78000",
+      "quantity": "10",
+      "id": 15
+    },
+    {
+      "product_name": "Ovion",
+      "price": "78000",
+      "quantity": "2",
+      "id": 16
+    },
+    {
+      "product_name": "omni-12",
+      "price": "97000",
+      "quantity": "2",
+      "id": 17
+    },
+    {
+      "product_name": "vivo v7",
+      "price": "89999",
+      "quantity": "10",
+      "id": 18
+    },
+    {
+      "product_name": "wagner",
+      "price": "1234565",
+      "quantity": "12",
+      "id": 19
+    }
+  ]
+}

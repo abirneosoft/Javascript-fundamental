@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h1>image slider</h1>
+    <img src="./image/laptop.jpg" id="slides" height="200px" width="200px" />
+    </div>
+    <script>
+        let arr = ["./image/mobile.jpeg", "./image/nature-gabb518c30_1920.jpg", "./image/pine-trees-gae5b47c58_1920.jpg", "./image/pine-trees-gae5b47c58_1920.jpg"]
+        var c = 0;
+        function interval() {
+            let image = document.getElementById("slides");
+            image.src = arr[c];
+            c++;
+            if (c == 4) {
+                c = 0
+            }
+        }
+        setInterval(interval, 3000)
+    </script>
+</body>
+</html>
